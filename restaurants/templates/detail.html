@@ -9,17 +9,31 @@
   <h5 class="card-header">Restaurant Info</h5>
   {% if restaurant.logo %}
     <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me...">
+  {% else %}
+    No Logo
   {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{restaurant.name}}</h5>
     <p class="card-text">{{restaurant.description|linebreaks}}</p>
     <p class="card-text">Opening Time: {{restaurant.opening_time}}</p>
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
-    <div class="row text-center">
-        <div class="col-md-6">
+    <br>
+    {% for item in items %}
+      <ul class="mt-1">
+        <li>{{item.name}}</li>
+        <br>
+        <li>{{item.description}}</li>
+        <br>
+        <li>{{item.price}}</li>
+    {% endfor %}
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <a href="{% url 'item-create' restaurant.id %}" class="btn btn-outline-warning btn-block">Create</a>
+        </div>
+        <div class="col-md-4">
             <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="{% url 'restaurant-delete' restaurant.id %}" class="btn btn-outline-danger btn-block">Delete</a>
         </div>
     </div>

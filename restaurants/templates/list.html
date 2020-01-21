@@ -7,9 +7,9 @@
 <div class="row">
     {% for restaurant in restaurants %}
     <div class="col-md-4">
-        <div class="card my-card">
+        <div class="card my-card my-4">
           {% if restaurant.logo %}
-            <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me...">
+            <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me..." style="height: 13rem;">
           {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{restaurant.name}}</h5>
